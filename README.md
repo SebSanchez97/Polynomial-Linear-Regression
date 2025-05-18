@@ -1,89 +1,64 @@
-# Project Description: Custom Polynomial Regression Model (Second-Order and Multi-Order)
+# Polynomial Regression Models
 
-## Data Source:
-This project generates a synthetic dataset for polynomial regression:
+## Project Overview
+This project implements custom Polynomial Regression models for fitting non-linear data. It includes two types of models:
 
-Number of Samples (N): 100 samples.
+Second-Order Polynomial Regression Model: A quadratic regression model that fits a second-order polynomial to the data.
 
-Feature (X): Random values generated in the range [-3, 3].
+Multi-Order Polynomial Regression Model: A flexible polynomial regression model that fits a polynomial of any specified order.
 
-Target (y): Generated using a quadratic equation:
+# Data Source
+This project generates a synthetic dataset for training and evaluating the polynomial regression models:
 
-𝑦
-=
-2
-+
-𝑥
-+
-0.5
-𝑥
-2
-+
-𝜖
-y=2+x+0.5x 
-2
- +ϵ
-where:
+Number of Samples: 100.
 
-𝑥
-x is the generated input feature.
+Feature: Random values generated in the range [-3, 3].
 
-𝜖
-ϵ is a random noise term added to introduce variability.
+Target: Generated using a quadratic equation with added random noise.
 
-Machine Learning Model Architecture:
-This project implements two types of custom Polynomial Regression models:
+# Model Descriptions
+1. Second-Order Polynomial Regression Model
+This model is defined in the SecondOrderPolynomialRegressionModel class.
 
-1. Second-Order Polynomial Regression Model:
-The model is defined in the SecondOrderPolynomialRegressionModel class in polyRegressionModel.py.
-
-Model Architecture:
-
-The input feature (X) is transformed to include a second-order term (
-𝑋
-2
-X 
-2
- ).
-
-A design matrix is created, including the first-order term, second-order term, and a bias term.
+It transforms the input feature to include a second-order term (quadratic term).
 
 The model is trained using the Ordinary Least Squares (OLS) method to calculate the weights.
 
-## Training Process:
+It is visualized using a scatter plot of the data and the fitted regression curve.
 
-The model fits the training data by minimizing the Mean Squared Error (MSE).
+2. Multi-Order Polynomial Regression Model
+This model is defined in the MultiOrderPolynomialRegressionModel class.
 
-The weights for the polynomial terms are calculated analytically.
-
-## Visualization:
-
-The trained quadratic model is visualized using a scatter plot of the data and the regression curve.
-
-2. Multi-Order Polynomial Regression Model:
-The model is defined in the MultiOrderPolynomialRegressionModel class in polyRegressionModel.py.
-
-## Model Architecture:
-
-The input feature (X) is transformed into a higher-order polynomial of the specified degree (poly_order).
-
-A design matrix is created with polynomial terms up to the specified degree.
+It transforms the input feature into a polynomial of any specified order (default is 20).
 
 The model is trained using the Ordinary Least Squares (OLS) method.
 
-## Training Process:
+It is visualized using a scatter plot of the data and the fitted regression curve.
 
-The model fits the data by minimizing the Mean Squared Error (MSE).
+# Project Structure
+polyRegressionModel.py: Contains the implementation of the two Polynomial Regression models.
 
-The weights for the polynomial terms are calculated analytically.
+main.py: Demonstrates how the models are created, trained, and visualized.
 
-## Visualization:
+# Usage
+Clone the repository to your local machine.
 
-The trained polynomial model is visualized using a scatter plot of the data and the regression curve.
+Run the main.py script to see the models in action:
 
-## Usage:
-The main file (main.py) demonstrates how the models are used:
+bash
+Copy
+Edit
+python main.py
+Modify the polynomial_order value in main.py to change the order of the multi-order polynomial model.
 
-A second-order polynomial regression model is trained and visualized.
+# Dependencies
+Python 3.x
 
-A multi-order polynomial regression model is trained and visualized for a specified polynomial order (default is 20).
+NumPy
+
+Matplotlib
+
+Scikit-learn (only for multi-order polynomial transformation)
+
+# License
+This project is licensed under the MIT License.
